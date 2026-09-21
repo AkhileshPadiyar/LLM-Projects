@@ -1,1 +1,5 @@
 pydantic
+pymupdf
+sentence_transformers
+chromadb
+python-dotenv
