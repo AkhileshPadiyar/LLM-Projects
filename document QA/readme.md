@@ -31,7 +31,7 @@ The application extracts information from the uploaded document, converts the do
 | Embedding Framework  | Sentence Transformers       |
 | Vector Database      | ChromaDB                    |
 | LLM Runtime          | Ollama                      |
-| LLM                  | Configurable through `.env` |
+| LLM                  | Configurable through `../.env` |
 | Storage              | Local ChromaDB              |
 
 ---
@@ -393,9 +393,9 @@ For example:
 ollama pull mistral:7b
 ```
 
-### 5. Configure `.env`
+### 5. Configure `../.env`
 
-Create a `.env` file:
+Create a `../.env` file:
 
 ```env
 MODEL_NAME=mistral:7b
