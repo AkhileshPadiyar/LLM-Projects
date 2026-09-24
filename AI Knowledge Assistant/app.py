@@ -9,6 +9,7 @@ from embeddings.embedder import generate_embedding, generate_query_embeddings
 import hashlib
 from vector_db.chroma_db import store_embeddings, search, document_exists, get_documents, delete_document
 
+
 load_dotenv()
 
 if "chat_history" not in st.session_state:
@@ -38,7 +39,7 @@ for document_id, filename in documents.items():
         st.success("Document Deleted Successfully")
 
 
-txt_file = st.file_uploader("Upload a file", type = ['.txt'])
+txt_file = st.file_uploader("Upload a file", type = ['.txt','.pdf'])
 
 
 if txt_file:
@@ -74,7 +75,9 @@ if st.session_state.saved_documents > 0:
                     documents = '\n'.join(result['documents'][0])
                     metadatas = result['metadatas'][0]
                     chat_history = st.session_state.chat_history
-                    llm_response = generate_rag_answer(documents, question, model_name, system_prompt, chat_history)
+                    response = generate_rag_answer(documents, question, model_name, system_prompt, chat_history)
+                    llm_response = response.answer
+                    st.write(f"Confidence: {response.confidence}")
                     st.write(llm_response)
                     st.write("Sources: ")
                     for i, data in enumerate(metadatas):
