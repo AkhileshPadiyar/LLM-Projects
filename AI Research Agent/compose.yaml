@@ -1,0 +1,15 @@
+services:
+  research-agent:
+    build: .
+    container_name: ai-research-agent
+    ports:
+      - "8501:8501"
+    environment:
+      OLLAMA_BASE_URL: "http://host.docker.internal:11434"
+      DATA_DIR: "/data"
+    volumes:
+      - research_data:/data
+    restart: unless-stopped
+
+volumes:
+  research_data:

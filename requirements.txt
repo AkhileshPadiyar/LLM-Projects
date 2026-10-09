@@ -3,3 +3,13 @@ pymupdf
 sentence_transformers
 chromadb
 python-dotenv
+langchain
+langchain-community
+langchain-ollama
+langchain-chroma
+langchain-huggingface
+pypdf
+requests
+ddgs
+beautifulsoup4
+langgraph-checkpoint-sqlite
